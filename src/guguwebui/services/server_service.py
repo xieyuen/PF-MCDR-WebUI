@@ -4,6 +4,7 @@ import traceback
 from pathlib import Path
 from typing import List, Optional
 
+from guguwebui import DEFAULT_CONFIG
 from guguwebui.utils.api_cache import api_cache
 from guguwebui.utils.mc_util import get_java_server_info, get_server_port
 from guguwebui.utils.mcdr_adapter import MCDRAdapter
@@ -155,7 +156,7 @@ class ServerService:
         """检查是否启用公开聊天页"""
         try:
             server_config = self.server.load_config_simple(
-                "config.json", DEFALUT_CONFIG, echo_in_console=False
+                "config.json", DEFAULT_CONFIG, echo_in_console=False
             )
             return server_config.get("public_chat_enabled", False)
         except Exception:
